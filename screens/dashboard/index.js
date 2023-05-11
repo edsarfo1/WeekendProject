@@ -15,16 +15,17 @@ const Dashboard = () => {
   const [field3, setField3] = useState('');
 
   useEffect(() => {
-    fetchData();
+    getData();
   }, []);
 
-  const fetchData = async () => {
+  const getData = async () => {
     try {
       const response = await fetch(
-        'https://jsonplaceholder.typicode.com/todos',
+        'https://jsonplaceholder.typicode.com/users',
       );
-      const json = await response.json();
-      setData(json);
+      const data = await response.json();
+      console.log(data);
+      setData(data);
     } catch (error) {
       console.error(error);
     }
